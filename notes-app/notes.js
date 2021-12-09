@@ -2,11 +2,6 @@ const fs = require('fs')
 const myChalk = require('chalk')
 
 
-const getNotes = () => {
-    console.log(myChalk.inverse("Listing Your notes..."))
-    
-}
-
 const readNote = (title) => {
     const notes = loadNotes()
 
@@ -31,6 +26,7 @@ const addNotes = (title, body) => {
     // })
     // const duplicateNotes = notes.filter((note) => note.title === title)
     const duplicateNote = notes.find((note) => note.title === title)
+
 
     if (!duplicateNote) { //if the note doesn't already exist 
         notes.push({title: title, body: body})
@@ -79,7 +75,6 @@ const loadNotes = () => {
 
 }
 module.exports = {
-    getNotes: getNotes,
     addNotes: addNotes,
     removeNotes: removeNotes,
     listNotes: listNotes,
